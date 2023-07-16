@@ -13,6 +13,20 @@ class hangman(game):
     def details(self):
         return f"Game name is {self.game_name}, Game stages are {self.no_of_stages}, Username is {self.user_name}"
 
-hang_man = hangman(6,"HangMan","Ali")
+    def start_game(self):
+        print(f"Total stages are {self.no_of_stages}")
+
+def name_validation():
+    while True:
+        name = input("Please Enter Name\n")
+        if name.replace(" ", "").isalpha():
+            return name
+        else:
+            print ("Name is invalid, Kindly enter between charcter A - Z")
+
+
+print("***** Welcome to Hang Man *****\n")
+name = name_validation()
+hang_man = hangman(6,"HangMan",name)
 print(hang_man.details())
 
