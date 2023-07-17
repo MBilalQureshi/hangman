@@ -8,7 +8,7 @@ class game:
 
 
 class hangman(game):
-    words =["apple", "banana", "owl", "controller", "helipad", "semiconductor"]
+    words = ["apple", "banana", "owl", "controller", "helipad", "semiconductor"]
 
     def __init__(self, no_of_stages, game_name, user_name):
         self.no_of_stages = no_of_stages
@@ -18,25 +18,45 @@ class hangman(game):
         return f"Game name is {self.game_name}, Game stages are {self.no_of_stages}, Username is {self.user_name}"
 
     def show_secret_word(self, secret_word, stage_number):
-        len(secret_word)
+        print(stage_number)
+        word_length = len(secret_word)
+        appended = ''
+
+        for x in range(word_length):
+            appended += '_'
+        print(secret_word)
+        print(appended)
+
+        won = False
+        death = 7
+        check = True
+        while won == False:
+            while check == True:
+                char = input("Please Enter character\n")
+                if(char.replace(" ", "").isalpha() and len(char) == 1):
+                    print(char)
+                    check = False
+                    won = True
+                else:
+                    print("Kindly enter single alphabetic character")
 
     def start_game(self):
-        win = False
-        valid_Answer = 0
-        Invalid_Answers = 0
+        # win = False
+        # valid_Answer = 0
+        # Invalid_Answers = 0
         # select a random secret word from list
         # remove from list and make count words and make _
 
         for stage_number in range(0, self.no_of_stages):
             secret_word = hangman.words.pop(randrange(len(hangman.words)))
-            hangman.show_secret_word(secret_word, stage_number)
+            hangman.show_secret_word(self, secret_word, stage_number+1)
             # remove break later to run all stages
             break
 
 
 def name_validation():
+    name = input("Please Enter Name\n")
     while True:
-        name = input("Please Enter Name\n")
         if name.replace(" ", "").isalpha():
             return name
         else:
