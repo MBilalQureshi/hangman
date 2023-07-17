@@ -28,40 +28,66 @@ class hangman(game):
         print(update_chars)
 
         won = False
-        deaths = 0 #7
-        
-        while won == False:
-            check = True
-            while check == True:
-                char = input("Please Enter character\n")
-                if(char.replace(" ", "").isalpha() and len(char) == 1):
-                    check = False
+        deaths = 0  #7
 
-                    # check char in actaul word
-                    # if word match put it in the position in __
-                    # if word not match warn the user and put hangman to near death situation
-                    # if all words match tell user he had won and print next round if multiple stages
-                    # at the end ask user if wants to play again
-                    position = []
-                    if char in secret_word:
-                        for index in range(word_length):
-                            if secret_word[index] == char:
-                                position.append(index)
-                            # else:
-                            #     print("Not the required char")
-                        print(position)
-                        # Now set positions in _ string
-                        for set_char in position:
-                            update_chars = update_chars[:set_char] \
-                                + char + update_chars[set_char+1:]
-                        print(update_chars)
-                    else:
-                        print("No char")
-                        # Death comes one step closer at this point
-                    # won is set to true for now to avoid other loop
-                    # won = True
+        while deaths < 7:
+            char = input("Please Enter character\n")
+            if char.replace(" ", "").isalpha() and len(char) == 1:
+
+                # check char in actaul word
+                # if word match put it in the position in __
+                # if word not match warn the user and put hangman to near \
+                #  death situation
+                # if all words match tell user he hadt \
+                #  won and print next round if multiple stages
+                # at the end ask user if wants to play again
+                position = []
+                if char in secret_word:
+                    for index in range(word_length):
+                        if secret_word[index] == char:
+                            position.append(index)
+                        # else:
+                        #     print("Not the required char")
+                    print(position)
+                    # Now set positions in _ string
+                    for set_char in position:
+                        update_chars = update_chars[:set_char] \
+                            + char + update_chars[set_char+1:]
+                    print(update_chars)
+                    if update_chars == secret_word:
+                        print("Congratulations, You have won this stage\n")
+                        if self.no_of_stages != stage_number:
+                            print("Loading next stage\n")
+                        else:
+                            print("The End\n")
+                        break
                 else:
-                    print("Kindly enter single alphabetic character")
+                    # count deaths
+                    deaths += 1
+                    if deaths == 1:
+                        print("death 1")
+                    elif deaths == 2:
+                        print("death 2")
+                    elif deaths == 3:
+                        print("death 3")
+                    elif deaths == 4:
+                        print("death 4")
+                    elif deaths == 5:
+                        print("death 5")
+                    elif deaths == 6:
+                        print("death 6")
+                    else:
+                        print("death 7")
+                        if(self.no_of_stages != stage_number):
+                            print("Loading next stage\n")
+                            break
+                        else:
+                            print("The End")
+                    # Death comes one step closer at this point
+                # won is set to true for now to avoid other loop
+                # won = True
+            else:
+                print("Kindly enter single alphabetic character")
 
     def start_game(self):
         # win = False
@@ -74,7 +100,7 @@ class hangman(game):
             secret_word = hangman.words.pop(randrange(len(hangman.words)))
             hangman.show_secret_word(self, secret_word, stage_number+1)
             # remove break later to run all stages
-            break
+            # break
 
 
 def name_validation():
