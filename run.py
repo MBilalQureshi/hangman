@@ -20,15 +20,15 @@ class hangman(game):
     def show_secret_word(self, secret_word, stage_number):
         print(stage_number)
         word_length = len(secret_word)
-        appended = ''
+        update_chars = ''
 
         for x in range(word_length):
-            appended += '_'
+            update_chars += '_'
         print(secret_word)
-        print(appended)
+        print(update_chars)
 
         won = False
-        death = 7
+        deaths = 0 #7
         
         while won == False:
             check = True
@@ -50,11 +50,16 @@ class hangman(game):
                             # else:
                             #     print("Not the required char")
                         print(position)
+                        # Now set positions in _ string
+                        for set_char in position:
+                            update_chars = update_chars[:set_char] \
+                                + char + update_chars[set_char+1:]
+                        print(update_chars)
                     else:
                         print("No char")
                         # Death comes one step closer at this point
                     # won is set to true for now to avoid other loop
-                    won = True
+                    # won = True
                 else:
                     print("Kindly enter single alphabetic character")
 
