@@ -17,7 +17,66 @@ class hangman(game):
     def details(self):
         return f"Game name is {self.game_name}, Game stages are {self.no_of_stages}, Username is {self.user_name}"
 
+
     def show_secret_word(self, secret_word, stage_number):
+        HANGMANPICS = ['''
+  +---+
+      |
+      |
+      |
+      |
+      |
+=========''',
+    '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
         print(stage_number)
         word_length = len(secret_word)
         update_chars = ''
@@ -29,7 +88,7 @@ class hangman(game):
 
         won = False
         deaths = 0  #7
-
+        print(HANGMANPICS[0])
         while deaths < 7:
             char = input("Please Enter character\n")
             if char.replace(" ", "").isalpha() and len(char) == 1:
@@ -65,24 +124,24 @@ class hangman(game):
                     # count deaths
                     deaths += 1
                     if deaths == 1:
-                        print("death 1")
+                        print(HANGMANPICS[1])
                     elif deaths == 2:
-                        print("death 2")
+                        print(HANGMANPICS[2])
                     elif deaths == 3:
-                        print("death 3")
+                        print(HANGMANPICS[3])
                     elif deaths == 4:
-                        print("death 4")
+                        print(HANGMANPICS[4])
                     elif deaths == 5:
-                        print("death 5")
+                        print(HANGMANPICS[5])
                     elif deaths == 6:
-                        print("death 6")
+                        print(HANGMANPICS[6])
                     else:
-                        print("death 7")
+                        print(HANGMANPICS[7])
                         if(self.no_of_stages != stage_number):
                             print("Loading next stage\n")
                             break
                         else:
-                            print("The End")
+                            print("Well, Hang Man is dead and it's on you :( \n")
                     # Death comes one step closer at this point
                 # won is set to true for now to avoid other loop
                 # won = True
