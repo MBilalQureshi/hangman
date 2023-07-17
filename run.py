@@ -29,13 +29,31 @@ class hangman(game):
 
         won = False
         death = 7
-        check = True
+        
         while won == False:
+            check = True
             while check == True:
                 char = input("Please Enter character\n")
                 if(char.replace(" ", "").isalpha() and len(char) == 1):
-                    print(char)
                     check = False
+
+                    # check char in actaul word
+                    # if word match put it in the position in __
+                    # if word not match warn the user and put hangman to near death situation
+                    # if all words match tell user he had won and print next round if multiple stages
+                    # at the end ask user if wants to play again
+                    position = []
+                    if char in secret_word:
+                        for index in range(word_length):
+                            if secret_word[index] == char:
+                                position.append(index)
+                            # else:
+                            #     print("Not the required char")
+                        print(position)
+                    else:
+                        print("No char")
+                        # Death comes one step closer at this point
+                    # won is set to true for now to avoid other loop
                     won = True
                 else:
                     print("Kindly enter single alphabetic character")
