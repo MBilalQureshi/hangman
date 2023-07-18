@@ -19,15 +19,14 @@ class hangman(game):
 
 
     def show_secret_word(self, secret_word, stage_number):
-        HANGMANPICS = ['''
+        hangman_pics = ['''
   +---+
       |
       |
       |
       |
       |
-=========''',
-    '''
+=========''', '''
   +---+
   |   |
       |
@@ -77,19 +76,19 @@ class hangman(game):
  / \  |
       |
 =========''']
-        print(stage_number)
+        # print(stage_number)
         word_length = len(secret_word)
         update_chars = ''
 
         for x in range(word_length):
             update_chars += '_'
-        print(secret_word)
-        print(update_chars)
+        # print(secret_word)
+        
 
-        won = False
         deaths = 0  #7
-        print(HANGMANPICS[0])
+        print(hangman_pics[0])
         while deaths < 7:
+            print("\nYour String: "+update_chars+'\n')
             char = input("Please Enter character\n")
             if char.replace(" ", "").isalpha() and len(char) == 1:
 
@@ -101,52 +100,57 @@ class hangman(game):
                 #  won and print next round if multiple stages
                 # at the end ask user if wants to play again
                 position = []
-                if char in secret_word:
-                    for index in range(word_length):
-                        if secret_word[index] == char:
-                            position.append(index)
-                        # else:
-                        #     print("Not the required char")
-                    print(position)
-                    # Now set positions in _ string
-                    for set_char in position:
-                        update_chars = update_chars[:set_char] \
-                            + char + update_chars[set_char+1:]
-                    print(update_chars)
-                    if update_chars == secret_word:
-                        print("Congratulations, You have won this stage\n")
-                        if self.no_of_stages != stage_number:
-                            print("Loading next stage\n")
-                        else:
-                            print("The End\n")
-                        break
+                if char in update_chars:
+                    print("You have already selected this char, try again \n")
                 else:
-                    # count deaths
-                    deaths += 1
-                    if deaths == 1:
-                        print(HANGMANPICS[1])
-                    elif deaths == 2:
-                        print(HANGMANPICS[2])
-                    elif deaths == 3:
-                        print(HANGMANPICS[3])
-                    elif deaths == 4:
-                        print(HANGMANPICS[4])
-                    elif deaths == 5:
-                        print(HANGMANPICS[5])
-                    elif deaths == 6:
-                        print(HANGMANPICS[6])
-                    else:
-                        print(HANGMANPICS[7])
-                        if(self.no_of_stages != stage_number):
-                            print("Loading next stage\n")
+                    if char in secret_word:
+                        for index in range(word_length):
+                            if secret_word[index] == char:
+                                position.append(index)
+                            # else:
+                            #     print("Not the required char")
+                        # print(position)
+                        # Now set positions in _ string
+                        for set_char in position:
+                            update_chars = update_chars[:set_char] \
+                                + char + update_chars[set_char+1:]
+                        # print(update_chars+'\n')
+                        if update_chars == secret_word:
+                            print(secret_word+'\n')
+                            print("Congratulations, You have won this stage\n")
+                            if self.no_of_stages != stage_number:
+                                print("Loading next stage\n")
+                            else:
+                                print("The End\n")
                             break
+                    else:
+                        # count deaths
+                        deaths += 1
+                        if deaths == 1:
+                            print(hangman_pics[1])
+                        elif deaths == 2:
+                            print(hangman_pics[2])
+                        elif deaths == 3:
+                            print(hangman_pics[3])
+                        elif deaths == 4:
+                            print(hangman_pics[4])
+                        elif deaths == 5:
+                            print(hangman_pics[5])
+                        elif deaths == 6:
+                            print(hangman_pics[6])
                         else:
-                            print("Well, Hang Man is dead and it's on you :( \n")
-                    # Death comes one step closer at this point
-                # won is set to true for now to avoid other loop
-                # won = True
+                            print(hangman_pics[7])
+                            print("The String was: "+secret_word+'\n')
+                            if(self.no_of_stages != stage_number):
+                                print("Loading next stage\n")
+                                break
+                            else:                               
+                                print("Well, Hang Man is dead and it's on you :(\n")
+                                # Death comes one step closer at this point
+                                # won is set to true for now to avoid other loop
+                                # won = True
             else:
-                print("Kindly enter single alphabetic character")
+                print("Kindly enter single alphabet character\n")
 
     def start_game(self):
         # win = False
@@ -163,8 +167,8 @@ class hangman(game):
 
 
 def name_validation():
-    name = input("Please Enter Name\n")
     while True:
+        name = input("Please Enter Name\n")
         if name.replace(" ", "").isalpha():
             return name
         else:
@@ -192,5 +196,5 @@ print("***** Welcome to Hang Man *****\n")
 name = name_validation()
 total_stages = stages_count_validation()
 hang_man = hangman(total_stages, "Hang Man", name)
-print(hang_man.details())
+# print(hang_man.details())
 hang_man.start_game()
