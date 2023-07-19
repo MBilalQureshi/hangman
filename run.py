@@ -107,8 +107,8 @@ class hangman(game):
                             print(secret_word.upper()+'\n')
                             print("Congratulations, You have won this stage\n")
                             if self.no_of_stages != stage_number:
-                                time.sleep(1.5)
                                 print("Loading next stage...\n")
+                                time.sleep(1.5)
                             else:
                                 print("The End\n")
                             break
@@ -171,8 +171,15 @@ def stages_count_validation():
 
 print("***** Welcome to Hang Man *****\n")
 name = name_validation()
-total_stages = stages_count_validation()
-hang_man = hangman(name, total_stages)
-hang_man.start_game()
-x = hang_man.details()
-print(x)
+while True:
+    set_game = input("\nDo you want to start the game? Press y for yes or any other button for no.\n").lower()
+    if set_game == 'y':
+        total_stages = stages_count_validation()
+        hang_man = hangman(name, total_stages)
+        hang_man.start_game()
+        x = hang_man.details()
+        print(x)
+    else:
+        print("Have a nice day :)\n")
+        time.sleep(1.5)
+        break
