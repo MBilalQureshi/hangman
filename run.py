@@ -18,7 +18,6 @@ class Game:
         self.total_loses = total_loses
 
     def details(self):
-        
         now = datetime.now()
         return f"Game name is {self.game_name}, Game stages are {self.no_of_stages}, Username is {self.user_name}, data and time is:{now.strftime('%d/%m/%Y %H:%M:%S')}, total won{self.total_wins}, total loose{self.total_loses}"
 
@@ -95,7 +94,7 @@ class Hangman(Game):
         """
         This function calculates the invalid answers
         and generate hangman images based on it.
-        It also tells on 7th try that user had failed and 
+        It also tells on 7th try that user had failed and
         check if there is next stage or not
         """
         if deaths == 1:
@@ -165,13 +164,12 @@ class Hangman(Game):
                     else:
                         deaths += 1
                         Hangman.calculate_invalid_answers(self, deaths, secret_word, stage_number)
-                        
             else:
                 print("Kindly enter single alphabet character\n")
 
     def start_game(self):
         """
-        This functions just fetch random word from words list and move it 
+        This functions just fetch random word from words list and move it
         to another function along with total stages
         """
         for stage_number in range(0, self.no_of_stages):
@@ -181,7 +179,7 @@ class Hangman(Game):
 
 def name_validation():
     """
-    This function validates the username 
+    This function validates the username
     entered by the user
     """
     while True:
