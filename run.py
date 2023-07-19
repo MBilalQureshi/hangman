@@ -1,5 +1,6 @@
 from random import randrange
 from datetime import datetime
+import time
 
 
 class game:
@@ -106,6 +107,7 @@ class hangman(game):
                             print(secret_word.upper()+'\n')
                             print("Congratulations, You have won this stage\n")
                             if self.no_of_stages != stage_number:
+                                time.sleep(1.5)
                                 print("Loading next stage...\n")
                             else:
                                 print("The End\n")
@@ -131,6 +133,7 @@ class hangman(game):
                             print("Well, Hang Man is dead and it's on you :(\n")
                             if self.no_of_stages != stage_number:
                                 print("Loading next stage...\n")
+                                time.sleep(1.5)
                                 break
             else:
                 print("Kindly enter single alphabet character\n")
