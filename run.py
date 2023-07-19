@@ -110,7 +110,7 @@ class hangman(game):
                                 print("Loading next stage...\n")
                                 time.sleep(1.5)
                             else:
-                                print("The End\n")
+                                time.sleep(1.5)
                             break
                     else:
                         # count deaths
@@ -131,6 +131,7 @@ class hangman(game):
                             print(hangman_pics[7])
                             print("The String was: "+secret_word.upper()+'\n')
                             print("Well, Hang Man is dead and it's on you :(\n")
+                            time.sleep(1.5)
                             if self.no_of_stages != stage_number:
                                 print("Loading next stage...\n")
                                 time.sleep(1.5)
@@ -169,17 +170,29 @@ def stages_count_validation():
                 print("Kinldy enter stages between 1 and 5\n")
 
 
-print("***** Welcome to Hang Man *****\n")
-name = name_validation()
-while True:
-    set_game = input("\nDo you want to start the game? Press y for yes or any other button for no.\n").lower()
-    if set_game == 'y':
-        total_stages = stages_count_validation()
-        hang_man = hangman(name, total_stages)
-        hang_man.start_game()
-        x = hang_man.details()
-        print(x)
-    else:
-        print("Have a nice day :)\n")
-        time.sleep(1.5)
-        break
+def main():
+    name = name_validation()
+    while True:
+        set_game = input("\nDo you want to start the game? Press y for yes or any other button for no.\n").lower()
+        if set_game == 'y':
+            total_stages = stages_count_validation()
+            hang_man = hangman(name, total_stages)
+            hang_man.start_game()
+            x = hang_man.details()
+            print(x)
+        else:
+            print("Have a nice day. Good Bye! :)\n")
+            time.sleep(1.5)
+            break
+
+
+print(" _                                             ")
+print("| |                                            ")
+print("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ")
+print("| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ ")
+print("| | | | (_| | | | | (_| | | | | | | (_| | | | |")
+print("|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|")
+print("                    __/ |                      ")
+print("                   |___/                       ")
+
+main()
