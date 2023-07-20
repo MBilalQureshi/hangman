@@ -30,10 +30,21 @@ class Game:
         self.total_wins = total_wins
         self.total_loses = total_loses
 
-    def details(self):
+    def update_player_data(self):
+        """
+        This function updates the players data after completing
+        their number of selected stages
+        """
         now = datetime.now()
-        return f"Game name is {self.game_name}, Game stages are {self.no_of_stages}, Username is {self.user_name}, data and time is:{now.strftime('%d/%m/%Y %H:%M:%S')}, total won{self.total_wins}, total loose{self.total_loses}"
+        update_data = SHEET.worksheet("Players data")
+        update_data.append_row([now.strftime('%d/%m/%Y %H:%M:%S'), self.user_name, self.game_name, self.no_of_stages, self.total_wins, self.total_loses])
 
+    def fetch_players_data():
+        """
+        This function fetches the data of last 10 players
+        who have played the game and present it to the user
+        """
+        pass
 
 class Hangman(Game):
     """
@@ -155,7 +166,7 @@ class Hangman(Game):
             if char.replace(" ", "").isalpha() and len(char) == 1:
                 position = []
                 if char in update_chars:
-                    print("You have already selected this character, try again \n")
+                    print("You have already selected this character, try again\n")
                 else:
                     if char in secret_word:
                         for index in range(word_length):
@@ -244,13 +255,15 @@ def main():
     print("                   |___/                       ")
     name = name_validation()
     while True:
-        set_game = input("\nDo you want to start the game? Press y for yes or any other button for no.\n").lower()
+        set_game = input("\nPress y to start game, press l to see last 10 players scores or any other button to exit.\n").lower()
         if set_game == 'y':
             total_stages = stages_count_validation()
             hang_man = Hangman(name, total_stages)
             hang_man.start_game()
-            x = hang_man.details()
-            print(x)
+            hang_man.update_player_data()
+        elif (set_game == 'l'):
+            # hang_man = Hangman()
+            Game.fetch_players_data()
         else:
             print("Have a nice day. Good Bye! :)\n")
             time.sleep(1.5)
