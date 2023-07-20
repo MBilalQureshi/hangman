@@ -28,7 +28,7 @@ class Hangman(Game):
     words, asking which word is it, calculate false and correct
     answers and handle multiple stages from 1 - 5 mentioned by user.
     """
-    words = ["apple", "banana", "owl", "controller", "helipad", "semiconductor"]
+    words = ["apple", "banana", "owl", "controller", "helipad", "semiconductor", "laptop"]
     hangman_pics = ['''
   +---+
       |
@@ -112,7 +112,7 @@ class Hangman(Game):
         else:
             print(Hangman.hangman_pics[7])
             self.total_loses += 1
-            print("The String was: "+secret_word.upper()+'\n')
+            print("The word was: "+secret_word.upper()+'\n')
             print("Well, Hang Man is dead and it's on you :(\n")
             time.sleep(1.5)
             if self.no_of_stages != stage_number:
@@ -137,12 +137,12 @@ class Hangman(Game):
         deaths = 0
         print(Hangman.hangman_pics[0])
         while deaths < 7:
-            print("\nYour String: "+update_chars.upper()+'\n')
-            char = input("Please Enter character\n").lower()
+            print("\nYour Word: "+update_chars.upper()+'\n')
+            char = input("Please enter character\n").lower()
             if char.replace(" ", "").isalpha() and len(char) == 1:
                 position = []
                 if char in update_chars:
-                    print("You have already selected this char, try again \n")
+                    print("You have already selected this character, try again \n")
                 else:
                     if char in secret_word:
                         for index in range(word_length):
@@ -187,7 +187,7 @@ def name_validation():
         if name.replace(" ", "").isalpha():
             return name
         else:
-            print("Name is invalid, Kindly enter characters between A - Z\n")
+            print("Name is invalid. Kindly enter characters between A - Z\n")
 
 
 def stages_count_validation():
@@ -197,14 +197,14 @@ def stages_count_validation():
     entered by the user.
     """
     while True:
-        stages = input("Pleas Enter number of stages between 1 and 5\n")
+        stages = input("Please Enter number of stages between 1 and 5\n")
         try:
             if not int(stages):
                 raise ValueError(
-                    print("Kinldy Enter intger value")
+                    print("Kinldy enter stages between 1 and 5\n")
                 )
-        except ValueError as e:
-            print(f"Invalid data: {e}, please try again.\n")
+        except ValueError:
+            print("Kinldy enter stages between 1 and 5\n")
         else:
             if int(stages) >= 1 and int(stages) <= 5:
                 return int(stages)
@@ -244,4 +244,5 @@ def main():
             break
 
 
-main()
+if __name__ == "__main__":
+    main()
