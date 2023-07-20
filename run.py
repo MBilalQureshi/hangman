@@ -44,7 +44,21 @@ class Game:
         This function fetches the data of last 10 players
         who have played the game and present it to the user
         """
-        pass
+        fetch_data = SHEET.worksheet("Players data")
+        rows = []
+        counter = 0
+        for index in range(len(fetch_data.get_all_values()), 0, -1):
+            row = fetch_data.row_values(index)
+            rows.append(row)
+            counter += 1
+            if counter == 10:
+                break
+        
+        if len(rows) < 10:
+            rows.pop(len(rows)-1)
+        for data in rows:
+            print(f"Date and time:{data[0]} Username: {data[1]} Game name: {data[2]} Total stages: {data[3]} Total wins: {data[4]} Total loses: {data[5]}\n")
+
 
 class Hangman(Game):
     """
