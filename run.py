@@ -23,7 +23,8 @@ class Game:
     As parent game class, this will also handle multiple games in future
     other than hangman.
     """
-    def __init__(self, game_name, user_name, no_of_stages, total_wins, total_loses):
+    def __init__(self, game_name, user_name, no_of_stages, total_wins,
+                 total_loses):
         self.game_name = game_name
         self.user_name = user_name
         self.no_of_stages = no_of_stages
@@ -37,11 +38,14 @@ class Game:
         """
         now = datetime.now()
         update_data = SHEET.worksheet("Players data")
-        update_data.append_row([now.strftime('%d/%m/%Y %H:%M:%S'), self.user_name, self.game_name, self.no_of_stages, self.total_wins, self.total_loses])
+        update_data.append_row([now.strftime('%d/%m/%Y %H:%M:%S'),
+                                self.user_name, self.game_name,
+                                self.no_of_stages,
+                                self.total_wins, self.total_loses])
 
     def fetch_players_data():
         """
-        This function fetches the data of last 10 players
+        This function fetches the data of last 3 players
         who have played the game and present it to the user
         """
         fetch_data = SHEET.worksheet("Players data")
@@ -51,13 +55,14 @@ class Game:
             row = fetch_data.row_values(index)
             rows.append(row)
             counter += 1
-            if counter == 10:
+            if counter == 3:
                 break
-        
-        if len(rows) < 10:
+        if len(rows) < 3:
             rows.pop(len(rows)-1)
         for data in rows:
-            print(f"Date and time:{data[0]} Username: {data[1]} Game name: {data[2]} Total stages: {data[3]} Total wins: {data[4]} Total loses: {data[5]}\n")
+            print(f"Date and time: {data[0]} | Username: {data[1]} | "
+                  f"Game name: {data[2]} | Total stages: {data[3]} | "
+                  f"Total wins: {data[4]} | Total loses: {data[5]}\n")
 
 
 class Hangman(Game):
@@ -66,7 +71,111 @@ class Hangman(Game):
     words, asking which word is it, calculate false and correct
     answers and handle multiple stages from 1 - 5 mentioned by user.
     """
-    words = ["apple", "banana", "owl", "controller", "helipad", "semiconductor", "laptop"]
+    words = ('able about account acid across act addition adjustment'
+             'advertisement after again against agreement '
+             'air all almost among amount amusement and angle angry animal '
+             'answer ant any apparatus apple approval '
+             'arch argument arm army art as at attack attempt attention '
+             'attraction authority automatic awake '
+             'baby back bad bag balance ball band basebasin basket bath be '
+             'beautiful because bed bee before behaviour '
+             'belief bell bent berry between bird birth bit bite bitter '
+             'black blade blood blow blue board boat body '
+             'boiling bone book boot bottle box boy brain brake branch brass '
+             'bread breath brick bridge bright broken '
+             'brother brown brush bucket building bulb burn burst business '
+             'but butter button by '
+             'cake camera canva card care carriage cart cat cause certain '
+             'chain chalk chance change cheap cheese chemical '
+             'chest chief chin church circle clean clear clock cloth cloud '
+             'coal coat cold collar colour comb come comfort '
+             'committee common company comparison competition complete '
+             'complex condition connection conscious control cook '
+             'copper copy cord cork cotton cough country cover cow crack '
+             'credit crime cruel crush cry cup cup current curtain '
+             'curve cushion damage danger dark daughter day  dead dear death '
+             'debt decision deep degree delicate dependent '
+             'design desire destruction detail development different '
+             'digestion direction dirty discovery discussion disease '
+             'disgust distance distribution division do dog door doubt down '
+             'drain drawer dress drink driving drop dry dust '
+             'ear early earth east edge education effect egg elastic '
+             'electric end engine enough equal error even event ever '
+             'every example exchange existence expansion experience  expert '
+             'eye face fact fall false family far farm fat '
+             'father fear feather feeble feeling female fertile fiction '
+             'field fight finger fire first  fish fixed flag '
+             'flame flat flight floor flower fly fold food foolish foot for '
+             'force fork form forward fowl frame free  frequent '
+             'friend from front fruit full future garden general get girl '
+             'give glass glove go goat gold good government grain '
+             'grass great green grey grip group growth  guide gun hair  '
+             'hammer hand hanging happy harbour hard harmony hat hate '
+             'have he head healthy hear hearing heart heat help high history '
+             'hole hollow hookhope horn horse hospital hour house '
+             'how humour I ice idea if ill important impulse in increase '
+             'industry ink insect instrument insurance interest invention '
+             'iron island jelly jewel join journey judge jump keep kettle '
+             'key kick kind kiss knee knife knot knowledge land language '
+             'last late laugh law  lead leaf learning leather left leg let '
+             'letter level library lift light like limit line '
+             'linen lip liquid list little living lock long look loose loss '
+             'loud love low machine  make male man manager map mark '
+             'market married  mass match material may meal measure meat '
+             'medical meeting memory metal middle military milk mind '
+             'mine minute mist mixed money monkey month moon morning mother '
+             'motion mountain mouth move much muscle music nail '
+             'name narrow nation natural near necessary neck need needle '
+             'nerve net new news night no noise normal north nose not '
+             'note now number nut observation of off offer office oil old on '
+             'only open operation opinion opposite or orange order '
+             'organization ornament other out oven over owner page pain '
+             'paint paper parallel parcel part past paste payment peace '
+             'pen pencil person physical picture pin pipe place plane '
+             'plant plate play please pleasure plough pocket point '
+             'poison polish political poor porter position possible pot '
+             'potato powder power present price print prison private pump'
+             'probable process produce profit property prose protest public'
+             'pull punishment purpose push put quality question quick quiet '
+             'quite rail rain range rat rate ray reaction reading ready '
+             'reason receipt record red regret regular relation religion '
+             'representative request respect responsible rest reward rhythm '
+             'rice right ring river road rod roll roof room root '
+             'rough round rub rule run sad safe sail salt same sand say '
+             'scale school science scissors screw sea seat second '
+             'secret secretary see seed seem selection self send sense '
+             'separate serious servant shade shake shame sharp sheep '
+             'shelf ship shirt shock shoe short shut side sign silk silver '
+             'simple sister size skin  skirt sky sleep slip slope '
+             'slow small smash smell smile smoke smooth snake sneeze snow so '
+             'soap society sock soft solid some son song sort '
+             'sound soup south space spade special sponge spoon spring '
+             'square stage stamp star start statement station steam '
+             'steel stem step stick sticky stiff still stitch stocking '
+             'stomach stone stop store story straight strange street '
+             'stretch strong structure substance such sudden sugar '
+             'suggestion summer sun support surprise sweet swim system '
+             'table tail take talk tall taste tax teaching tendency test '
+             'than that the then theory there thick thin thing this '
+             'thought thread throat through through thumb thunder ticket '
+             'tight till time tin tired to toe together tomorrow tongue '
+             'tooth top touch town trade train transport tray tree trick '
+             'trouble trousers true turn twist umbrella '
+             'under unit up use value verse very vessel view violent voice '
+             'waiting walk wall war warm wash waste watch water wave wax '
+             'way weather week weight well west wet wheel when where while '
+             'whip whistle white who why wide will wind '
+             'window wine wing winter wire wise with woman wood wool word '
+             'work worm wound writing wrong year yellow yes yesterday '
+             'ant baboon badger bat bear beaver camel cat clam cobra cougar '
+             'coyote crow deer dog donkey duck eagle ferret fox frog goat '
+             'goose hawk lion lizard llama mole monkey moose mouse mule newt '
+             'otter owl panda parrot pigeon python rabbit ram rat raven '
+             'rhino salmon seal shark sheep skunk sloth snake spider '
+             'stork swan tiger toad trout turkey turtle weasel whale wolf '
+             'wombat zebra '
+             'you young Android ').split()
+    print(words)
     hangman_pics = ['''
   +---+
       |
@@ -123,7 +232,7 @@ class Hangman(Game):
  /|\  |
  / \  |
       |
-=========''']
+=========''']  # noqa
 
     def __init__(self, user_name, no_of_stages):
         Game.__init__(self, "Hang Man", user_name, no_of_stages, 0, 0)
@@ -170,17 +279,18 @@ class Hangman(Game):
         word_length = len(secret_word)
         update_chars = ''
 
-        for x in range(word_length):
+        for value in range(word_length):
             update_chars += '_'
         deaths = 0
         print(Hangman.hangman_pics[0])
         while deaths < 7:
-            print("\nYour Word: "+update_chars.upper()+'\n')
+            print("\nYour Guess: "+update_chars.upper()+'\n')
             char = input("Please enter character\n").lower()
             if char.replace(" ", "").isalpha() and len(char) == 1:
                 position = []
                 if char in update_chars:
-                    print("You have already selected this character, try again\n")
+                    print("You have already selected this character, "
+                          "try again\n")
                 else:
                     if char in secret_word:
                         for index in range(word_length):
@@ -201,7 +311,9 @@ class Hangman(Game):
                             break
                     else:
                         deaths += 1
-                        Hangman.calculate_invalid_answers(self, deaths, secret_word, stage_number)
+                        Hangman.calculate_invalid_answers(self, deaths,
+                                                          secret_word,
+                                                          stage_number)
             else:
                 print("Kindly enter single alphabet character\n")
 
@@ -262,14 +374,16 @@ def main():
     print(" _                                             ")
     print("| |                                            ")
     print("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ")
-    print("| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ ")
+    print("| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ ")  # noqa
     print("| | | | (_| | | | | (_| | | | | | | (_| | | | |")
-    print("|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|")
+    print("|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|")  # noqa
     print("                    __/ |                      ")
     print("                   |___/                       ")
     name = name_validation()
     while True:
-        set_game = input("\nPress y to start game, press l to see last 10 players scores or any other button to exit.\n").lower()
+        set_game = input("\nPress 'y' to start game, press 'l' to see last 3 "
+                         "players scores or any other button to "
+                         "exit.\n").lower()
         if set_game == 'y':
             total_stages = stages_count_validation()
             hang_man = Hangman(name, total_stages)
