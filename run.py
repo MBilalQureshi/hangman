@@ -175,7 +175,6 @@ class Hangman(Game):
              'stork swan tiger toad trout turkey turtle weasel whale wolf '
              'wombat zebra '
              'you young Android ').split()
-    print(words)
     hangman_pics = ['''
   +---+
       |
@@ -278,20 +277,27 @@ class Hangman(Game):
         """
         word_length = len(secret_word)
         update_chars = ''
-
+        tried_chars = ''
+        all_chars = ''
         for value in range(word_length):
             update_chars += '_'
         deaths = 0
-        print(Hangman.hangman_pics[0])
+        print(Hangman.hangman_pics[0]+"\n")
         while deaths < 7:
-            print("\nYour Guess: "+update_chars.upper()+'\n')
+            print(f"Characters you have tried till now are: {all_chars}\n")
+            # for x, y in zip(tried_chars, update_chars):
+            #     print(x, y)
+            print("Your Guess: "+update_chars.upper()+'\n')
             char = input("Please enter character\n").lower()
             if char.replace(" ", "").isalpha() and len(char) == 1:
+                if char.upper() not in all_chars:
+                    all_chars += f"{char.upper()} "
                 position = []
-                if char in update_chars:
-                    print("You have already selected this character, "
+                if char in update_chars or char in tried_chars:
+                    print("\nYou have already selected this character, "
                           "try again\n")
                 else:
+                    tried_chars += char
                     if char in secret_word:
                         for index in range(word_length):
                             if secret_word[index] == char:
