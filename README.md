@@ -16,7 +16,7 @@ Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live
  6. If all words are found,S the players is being congratulated.
  7. If player fails to find all words, hangman dies but the player will be show what the actual word was.
 
-## User Stories
+## User stories
 - I can understand the purpose of this game.
 - I can learn new words.
 - I can use new learned words in normal routine life.
@@ -44,13 +44,13 @@ Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live
 
 ![username and options](/documentation/readme_img/username.png)
 
-### Stages Selection
+### Stages selection
 - On pressing Y user have the option to select stages between 1 and 5.
 - The game will keep running even after first stage till the option user had selected.
 
 ![Stages Selection](/documentation/readme_img/stages-selection.png)
 
-### Main Game flow
+### Main game flow
 - Soon after selecting the stage which is "3" in below image the game will start.
 - The initial state of ASCII art of Hangman will be shown.
 -  Characters used till now will be empty right now which will be filled later.
@@ -96,4 +96,20 @@ Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live
 ![last three players](/documentation/readme_img/last-three-users.png)
 
 ### Warning messages
-Following are the warning messages in game
+Following are the warning messages on invalid data entery:
+1. Message on invalid username.
+
+![message 1](/documentation/readme_img/invalid-username.png)
+
+2. Message on invalid stage number.
+
+![message 2](/documentation/readme_img/invalid-stage-entry.png)
+
+3. Message when invalid or more than one character is given.
+
+![message 3](/documentation/readme_img/invalid-alpha-char.png)
+
+### Exit message
+- A good bye message is shown when player wants to exit.
+
+![exit](/documentation/readme_img/exit.png)
