@@ -396,8 +396,8 @@ def main():
     print("\n")
     name = name_validation()
     while True:
-        set_game = input("\nPress 'y' to start game, press 'l' to see last 3 "
-                         "players scores or any other button to "
+        set_game = input("\nPress 'Y' to start game\nPress 'L' to see last 3 "
+                         "players scores\nPress any other button to "
                          "exit.\n").lower()
         if set_game == 'y':
             total_stages = stages_count_validation()
