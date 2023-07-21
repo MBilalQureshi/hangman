@@ -57,12 +57,15 @@ class Game:
             counter += 1
             if counter == 3:
                 break
-        if len(rows) < 3:
-            rows.pop(len(rows)-1)
-        for data in rows:
-            print(f"Date and time: {data[0]} | Username: {data[1]} | "
-                  f"Game name: {data[2]} | Total stages: {data[3]} | "
-                  f"Total wins: {data[4]} | Total loses: {data[5]}\n")
+        if len(fetch_data.get_all_values()) < 4:
+            rows.pop()
+        if len(rows) == 0:
+            print(" ---- Currently no data available ----")
+        else:
+            for data in rows:
+                print(f"Date and time: {data[0]} | Username: {data[1]} | "
+                      f"Game name: {data[2]} | Total stages: {data[3]} | "
+                      f"Total wins: {data[4]} | Total loses: {data[5]}\n")
 
 
 class Hangman(Game):
@@ -259,7 +262,9 @@ class Hangman(Game):
             print(Hangman.hangman_pics[7])
             self.total_loses += 1
             print("The word was: "+secret_word.upper()+'\n')
-            print("Well, Hang Man is dead and it's on you :(\n")
+            print("\n==============================================")
+            print("Well, Hang Man is dead and it's on you :(")
+            print("==============================================\n")
             time.sleep(1.5)
             if self.no_of_stages != stage_number:
                 print("Loading next stage...\n")
@@ -284,9 +289,9 @@ class Hangman(Game):
         deaths = 0
         print(Hangman.hangman_pics[0]+"\n")
         while deaths < 7:
-            print(f"Characters you have tried till now are: {all_chars}\n")
-            # for x, y in zip(tried_chars, update_chars):
-            #     print(x, y)
+            print("\n------------------------------------------------------")
+            print(f"Characters used till now: {all_chars}")
+            print("------------------------------------------------------\n")
             print("Your Guess: "+update_chars.upper()+'\n')
             char = input("Please enter character\n").lower()
             if char.replace(" ", "").isalpha() and len(char) == 1:
@@ -294,8 +299,9 @@ class Hangman(Game):
                     all_chars += f"{char.upper()} "
                 position = []
                 if char in update_chars or char in tried_chars:
-                    print("\nYou have already selected this character, "
-                          "try again\n")
+                    print("\n==============================================")
+                    print("Character was already used, Please try again")
+                    print("==============================================\n")
                 else:
                     tried_chars += char
                     if char in secret_word:
@@ -307,7 +313,9 @@ class Hangman(Game):
                                 + char + update_chars[set_char+1:]
                         if update_chars == secret_word:
                             print(secret_word.upper()+'\n')
-                            print("Congratulations, You have won this stage\n")
+                            print("\n========================================")
+                            print("Congratulations, You have won this stage")
+                            print("========================================\n")
                             self.total_wins += 1
                             if self.no_of_stages != stage_number:
                                 print("Loading next stage...\n")
@@ -339,7 +347,7 @@ def name_validation():
     entered by the user
     """
     while True:
-        name = input("Please Enter Name\n")
+        name = input("Please Enter Your Name:\n")
         if name.replace(" ", "").isalpha():
             return name
         else:
@@ -385,6 +393,7 @@ def main():
     print("|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|")  # noqa
     print("                    __/ |                      ")
     print("                   |___/                       ")
+    print("\n")
     name = name_validation()
     while True:
         set_game = input("\nPress 'y' to start game, press 'l' to see last 3 "
@@ -396,7 +405,6 @@ def main():
             hang_man.start_game()
             hang_man.update_player_data()
         elif (set_game == 'l'):
-            # hang_man = Hangman()
             Game.fetch_players_data()
         else:
             print("Have a nice day. Good Bye! :)\n")
