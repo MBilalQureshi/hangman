@@ -261,11 +261,11 @@ class Hangman(Game):
         else:
             print(Hangman.hangman_pics[7])
             self.total_loses += 1
-            print("The word was: "+secret_word.upper()+'\n')
+            print(f"The word was: {secret_word.upper()}")
             print("\n==============================================")
             print("Well, Hang Man is dead and it's on you :(")
             print("==============================================\n")
-            time.sleep(1.5)
+            time.sleep(2)
             if self.no_of_stages != stage_number:
                 print("Loading next stage...\n")
                 time.sleep(1.5)
@@ -301,7 +301,7 @@ class Hangman(Game):
                 if char in update_chars or char in tried_chars:
                     print("\n==============================================")
                     print("Character was already used, Please try again")
-                    print("==============================================\n")
+                    print("==============================================")
                 else:
                     tried_chars += char
                     if char in secret_word:
@@ -365,22 +365,22 @@ def stages_count_validation():
         try:
             if not int(stages):
                 raise ValueError(
-                    print("Kinldy enter stages between 1 and 5\n")
+                    print("Kindly enter stages between 1 and 5\n")
                 )
         except ValueError:
-            print("Kinldy enter stages between 1 and 5\n")
+            print("Kindly enter stages between 1 and 5\n")
         else:
             if int(stages) >= 1 and int(stages) <= 5:
                 return int(stages)
             else:
-                print("Kinldy enter stages between 1 and 5\n")
+                print("Kindly enter stages between 1 and 5\n")
 
 
 def main():
     """
     This is the main function, The hangman logo is here, The
-    username is asked in the begining so that if user wants to
-    keep playing he/she dosen't have to enter username again and
+    username is asked in the beginning so that if user wants to
+    keep playing he/she doesn’t have to enter username again and
     again.
     the user is asked if he/she want to keep playing or not once
     they had played every stage.
