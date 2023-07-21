@@ -29,34 +29,71 @@ Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live
 - I can see the characters that I have tried while playing game.
 
 ## Features
-- Header
-    - On top of the console header is clearly visible to players and it can tell by its name what the game is about.
-    - The ASCII art of word "Hangman" is there to enhance the user experience.
+### Header
+- On top of the console header is clearly visible to players and it can tell by its name what the game is about.
+- The ASCII art of word "Hangman" is there to enhance the user experience.
 
-    ![Hangman header](/documentation/readme_img/header.png)
+![Hangman header](/documentation/readme_img/header.png)
 
-- Username and options
-    - The username must be given before proceeding towards options.
-    - Once username is set, player had three options as following:
-        - He/She can press Y to start game
-        - He/She can press L to see last three players
-        - He/She can exit game by pressing any other button
+### Username and main menu
+- The username must be given before proceeding towards options.
+- Once username is set, player had three options as following:
+    - He/She can press Y to start game
+    - He/She can press L to see last three players
+    - He/She can exit game by pressing any other button
 
-    ![username and options](/documentation/readme_img/username.png)
+![username and options](/documentation/readme_img/username.png)
 
-- Stages Selection
-    - On pressing Y user have the option to select stages between 1 and 5.
-    - The game will keep running even after first stage till the option user had selected.
+### Stages Selection
+- On pressing Y user have the option to select stages between 1 and 5.
+- The game will keep running even after first stage till the option user had selected.
 
-    ![Stages Selection](/documentation/readme_img/stages-selection.png)
+![Stages Selection](/documentation/readme_img/stages-selection.png)
 
-- Start Game
-    - Soon after selecting the stage which is "3" in below image the game will start.
-    - The initial state of ASCII art of Hangman will be shown.
-    -  Characters used till now will be empty right now which will be filled later.
-    - In front of Your Guess, there are dashes to show number of characters in word.
-    - At this point player is asked to enter a character .
+### Main Game flow
+- Soon after selecting the stage which is "3" in below image the game will start.
+- The initial state of ASCII art of Hangman will be shown.
+-  Characters used till now will be empty right now which will be filled later.
+- In front of Your Guess, there are dashes to show number of characters in word.
+- At this point player is asked to enter a character .
 
-    ![Start Game](/documentation/readme_img/after-stage-selection.png)
+![Start Game](/documentation/readme_img/after-stage-selection.png)
 
-- 
+- Once player starts giving characters the ASCII art of hangman also starts to get filled based on invalid answers.
+- Characters used till now string will start showing used up characters.
+- Dashes infront of your guess string will also start filling with proper characters.
+
+![Start Game](/documentation/readme_img/game-play.png)
+
+### Stage failed
+- On failing seven times the stage is lost and hangman is dead message appears on screen.
+- The word is also printed so that user can play and learn at the same time.
+- Game ends here if player had only one stage selected or he/she is on last stage. The user can select from three options mentioned in "Username and main menu" section once again. The username will remain same for the player's fesability.
+
+![stage failed](/documentation/readme_img/hangman-is-dead.png)
+
+### Stage cleared
+- The stage is cleared once player find all characters and congratulations message appeares on the screen.
+- Game ends here if player had only one stage selected or he/she is on last stage. The user can select from three options mentioned in "Username and main menu" section once again. The username will remain same for the player's fesability.
+
+![stage cleared](/documentation/readme_img/stage-won.png)
+
+### Loading next stage
+- Loading next stage only appeares when user selects more than one stage in the begining.
+
+![stage cleared](/documentation/readme_img/loading.png)
+
+# Last three players scores
+- Now after completing game we are back at main menu and we have selected "L". Now Player can see last three players following data:
+    - Date and Time
+    - Username
+    - Game name
+    - Total stages
+    - Total wins
+    - Total loses
+- This game dosen't require leaderboard as it has multiple stages options and user can select how many he/she would love to play.
+
+![last three players](/documentation/readme_img/last-three-users.png)
+
+### Warning messages
+Following are the warning messages in game
