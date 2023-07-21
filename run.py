@@ -329,7 +329,9 @@ class Hangman(Game):
                                                           secret_word,
                                                           stage_number)
             else:
-                print("Kindly enter single alphabet character\n")
+                print("\n=======================================")
+                print("Kindly enter single alphabet character")
+                print("=======================================\n")
 
     def start_game(self):
         """
@@ -351,7 +353,9 @@ def name_validation():
         if name.replace(" ", "").isalpha():
             return name
         else:
-            print("Name is invalid. Kindly enter characters between A - Z\n")
+            print("\n======================================================")
+            print("Name is invalid. Kindly enter characters between A - Z")
+            print("======================================================\n")
 
 
 def stages_count_validation():
@@ -365,15 +369,19 @@ def stages_count_validation():
         try:
             if not int(stages):
                 raise ValueError(
-                    print("Kindly enter stages between 1 and 5\n")
+                    print("Kindly enter stages between 1 and 5")
                 )
         except ValueError:
-            print("Kindly enter stages between 1 and 5\n")
+            print("\n=======================================")
+            print("Kindly enter stages between 1 and 5")
+            print("=======================================\n")
         else:
             if int(stages) >= 1 and int(stages) <= 5:
                 return int(stages)
             else:
-                print("Kindly enter stages between 1 and 5\n")
+                print("\n=======================================")
+                print("Kindly enter stages between 1 and 5")
+                print("=======================================\n")
 
 
 def main():

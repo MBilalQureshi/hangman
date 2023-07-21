@@ -24,7 +24,7 @@ Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live
 - I can navigate through application without any issue.
 - I get a mixture of old and new words when I play game again.
 - I can see the number of stages, total wins and loses in last three entries.
-- I can see the ascii image of hangman and from it able to undestand remaining tries.
+- I can easily perdict remaing tries by viewing the ASCII images of hangman.
 - I can see the actual word in the end if I fails to guess the correct word.
 - I can see the characters that I have tried while playing game.
 
