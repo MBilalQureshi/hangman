@@ -83,7 +83,7 @@ Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live
 
 ![stage cleared](/documentation/readme_img/loading.png)
 
-# Last three players scores
+### View last three players data
 - Now after completing game we are back at main menu and we have selected "L". Now Player can see last three players following data:
     - Date and Time
     - Username
@@ -94,6 +94,10 @@ Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live
 - This game dosen't require leaderboard as it has multiple stages options and user can select how many he/she would love to play.
 
 ![last three players](/documentation/readme_img/last-three-users.png)
+
+- The data is fetched from a Google spread sheet available on google drive.
+
+![last three players spread sheet data](/documentation/readme_img/spreadsheet-data.png)
 
 ### Warning messages
 Following are the warning messages on invalid data entery:
@@ -113,3 +117,20 @@ Following are the warning messages on invalid data entery:
 - A good bye message is shown when player wants to exit.
 
 ![exit](/documentation/readme_img/exit.png)
+
+## Deployment
+
+### Forking the GitHub Repository
+With Forking one can make a copy of a repository and to view or make changes in it without affecting the original repository. Following are the steps to do this.
+1. Log in to GitHub and locate [Hangman](https://github.com/MBilalQureshi/hangman) repository.
+2. At the top right side of the page just below the navigation bar, locate the fork button.
+3. You will now have a copy of the repository.
+
+### Making a Local Clone
+1. Log in to GitHub and locate [Hangman](https://github.com/MBilalQureshi/hangman) repository.
+2. Just below the repository name, click "Code".
+3. There is an option to copy HTTPS link. Press copy icon.
+5. Open Git Bash on local machine.
+4. Change the current working directory to the location where we want the cloned directory to be made.
+5. Type git clone on bash and paste the HTTPS URL we copied earlier.
+6. Press Enter. local clone will be created.
