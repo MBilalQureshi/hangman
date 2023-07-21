@@ -292,7 +292,7 @@ class Hangman(Game):
             print("\n------------------------------------------------------")
             print(f"Characters used till now: {all_chars}")
             print("------------------------------------------------------\n")
-            print("Your Guess: "+update_chars.upper()+'\n')
+            print("Your Guess: "+" ".join(update_chars.upper())+'\n')
             char = input("Please enter character\n").lower()
             if char.replace(" ", "").isalpha() and len(char) == 1:
                 if char.upper() not in all_chars:

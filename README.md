@@ -55,6 +55,8 @@ Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live
     - The initial state of ASCII art of Hangman will be shown.
     -  Characters used till now will be empty right now which will be filled later.
     - In front of Your Guess, there are dashes to show number of characters in word.
-    - Player will be asked to enter a character at this point.
+    - At this point player is asked to enter a character .
 
     ![Start Game](/documentation/readme_img/after-stage-selection.png)
+
+- 
