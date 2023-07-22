@@ -123,6 +123,11 @@ To see complete testing section, kindly click [here](/TESTING.md).
 
 ## Libraries and Technologies Used
 ### Python Libraries
+- [time](https://docs.python.org/3/library/time.html) is used for putting normal game flow to sleep.
+- [randrange](https://docs.python.org/3/library/random.html) is used to select a random word for list of words.
+- [datetime](https://pypi.org/project/DateTime/) is used to get current date and time for the last three players entry.
+- [gspread](https://pypi.org/project/gspread/) is used for communication with Google Sheets.
+- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/stable/index.html) is used to validate credentials and grant access to google service accounts.
 
 ### Programs Used
 - [GitHub](https://github.com/) used to host repository.
