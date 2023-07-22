@@ -123,7 +123,12 @@ To see complete testing section, kindly click [here](/TESTING.md).
 
 ## Libraries and Technologies Used
 ### Python Libraries
+
 ### Programs Used
+- [GitHub](https://github.com/) used to host repository.
+- [GitPod](https://gitpod.io/) used to develop project and organize version control.
+- [Heroku](https://www.heroku.com/) used to deploy the live project.
+- [PEP8 Online](https://pep8ci.herokuapp.com/#) used to validate all the Python code.
 
 ## Deployment
 
@@ -143,8 +148,16 @@ With Forking one can make a copy of a repository and to view or make changes in 
 6. Press Enter. local clone will be created.
 
 ## Credits
-### Content
 ### Extra Help
+- Basic concepts of using google APIs, managing credentails, deployment in Heroku is taken and understood from Code Institute's [Love Sandwiches](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode) project.
+- The concept of validating if character is alphabet is inderstood from [this](https://docs.python.org/2/library/stdtypes.html#str.isalpha) link.
+- The concept of using randrange is understood from [this](https://bobbyhadz.com/blog/python-remove-random-element-from-list) link.
+- The code for replacing a character is taken from [this](https://pythonexamples.org/python-string-replace-character-at-specific-position/) link.
+- The hangman ASCII art is taken from [this github](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c) link.
+- Learned date and time in different formats is learned from [this](https://www.programiz.com/python-programming/datetime/current-datetime) link.
+- Hangman word ASCII art is taken from [this](https://ascii.co.uk/art/hangman) link.
+- Hangman ASCII arts were causing "W605 invalid escape sequence '\ '" in PEP8 CI validation, to sppress it #noqa is used at three points which is learned from [this stackoverflow](https://stackoverflow.com/questions/18444840/how-to-disable-a-pep8-error-in-a-specific-file) link.
+- Words bank for Hangman game is taken from [this](https://github.com/YungNewton/HangMan/blob/master/hangMan.py) link.
 ### Acknowledgements
 - My Mentor Antonio Rodriguez for helpful feedbacks during project development.
 - Code Institute team for pointing in right direction.
