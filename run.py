@@ -412,7 +412,7 @@ def main():
             hang_man = Hangman(name, total_stages)
             hang_man.start_game()
             hang_man.update_player_data()
-        elif (set_game == 'l'):
+        elif set_game == 'l':
             Game.fetch_players_data()
         else:
             print("Have a nice day. Good Bye! :)\n")

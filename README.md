@@ -118,6 +118,13 @@ Following are the warning messages on invalid data entery:
 
 ![exit](/documentation/readme_img/exit.png)
 
+## Testing
+To see complete testing section, kindly click [here](/TESTING.md).
+
+## Libraries and Technologies Used
+### Python Libraries
+### Programs Used
+
 ## Deployment
 
 ### Forking the GitHub Repository
@@ -134,3 +141,10 @@ With Forking one can make a copy of a repository and to view or make changes in 
 4. Change the current working directory to the location where we want the cloned directory to be made.
 5. Type git clone on bash and paste the HTTPS URL we copied earlier.
 6. Press Enter. local clone will be created.
+
+## Credits
+### Content
+### Extra Help
+### Acknowledgements
+- My Mentor Antonio Rodriguez for helpful feedbacks during project development.
+- Code Institute team for pointing in right direction.
