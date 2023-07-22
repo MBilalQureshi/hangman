@@ -131,6 +131,27 @@ To see complete testing section, kindly click [here](/TESTING.md).
 - [PEP8 Online](https://pep8ci.herokuapp.com/#) used to validate all the Python code.
 
 ## Deployment
+### Heroku
+The site was deployed using Heroku and the live link can be found here: [Hangman](https://hangman-frenzy-4d545907a764.herokuapp.com/).
+1. Before actual deployment use "Heroku pip3 freeze > requirements.txt" on Gitpod console. This will add all the dependencies in requirements.txt file which will be needed by Heroku later during deployment.
+2. Log in to [Heroku](https://www.heroku.com/).
+3. On main page there is an option to create new app, click it.
+4. Enter a unique application name and select your region.
+5. Click on create app button.
+6. Click settings and select Config Vars.
+7. Click Reveal Config Vars and enter Key as "PORT" and Value as "8000" and press add button.
+8. Input CREDS and the content of your Google Sheet API creds file as another config var and click add.
+9. Scoll down on same page and add build packs, select "python" and click save.
+10. Add another build pack "NodeJs" and click save.
+11. Make sure python build pack is on top of NodeJs.
+12. Go to top of page and select deploy option.
+13. Select Github as deploymet method.
+14. Confirm to connect with github and auotherize Heroku from Github.
+15. In search bar type repository name and click the connect button.
+16. Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy Branch to deploy manually. Manually deployed branches will need re-deploying each time the repo is updated.
+17. Click View to view the deployed site.
+
+
 
 ### Forking the GitHub Repository
 With Forking one can make a copy of a repository and to view or make changes in it without affecting the original repository. Following are the steps to do this.
