@@ -24,12 +24,12 @@ class Game:
     other than hangman.
     """
     def __init__(self, game_name, user_name, no_of_stages, total_wins,
-                 total_loses):
+                 total_losses):
         self.game_name = game_name
         self.user_name = user_name
         self.no_of_stages = no_of_stages
         self.total_wins = total_wins
-        self.total_loses = total_loses
+        self.total_losses = total_losses
 
     def update_player_data(self):
         """
@@ -41,7 +41,7 @@ class Game:
         update_data.append_row([now.strftime('%d/%m/%Y %H:%M:%S'),
                                 self.user_name, self.game_name,
                                 self.no_of_stages,
-                                self.total_wins, self.total_loses])
+                                self.total_wins, self.total_losses])
 
     def fetch_players_data():
         """
@@ -67,7 +67,7 @@ class Game:
             for data in rows:
                 print(f"Date and time: {data[0]} | Username: {data[1]} | "
                       f"Game name: {data[2]} | Total stages: {data[3]} | "
-                      f"Total wins: {data[4]} | Total loses: {data[5]}\n")
+                      f"Total wins: {data[4]} | Total losses: {data[5]}\n")
 
 
 class Hangman(Game):
@@ -262,7 +262,7 @@ class Hangman(Game):
             print(Hangman.hangman_pics[6])
         else:
             print(Hangman.hangman_pics[7])
-            self.total_loses += 1
+            self.total_losses += 1
             print(f"The word was: {secret_word.upper()}")
             print("\n==============================================")
             print("Well, Hang Man is dead and it's on you :(")

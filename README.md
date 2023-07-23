@@ -1,20 +1,20 @@
 # Hangman
-Hangman is a classic game that was actually introduced in 1894 called Birds, Beasts, and Fishes. At that time it lacks the image of the hangman which was later introduced in 1902.
+Hangman is a classic game that was actually introduced in 1894 called Birds, Beasts, and Fishes. At that time, it lacks the image of the hangman which was later introduced in 1902.
 
-This is a mind and logic game. This game can be easy but very challenging at the same time but in anycase it helps the players to learn new words and add new set of vocablury they can use in their daily life routine. The player has 7 tries and after that the hangman gets hunged. For users learning purpose the word will be shown after last try.
+This is a mind and logic game. This game can be easy but very challenging at the same time but in any case it helps the players to learn new words and add new set of vocabulary they can use in their daily life routine. The player has 7 tries and after that the hangman gets well hanged. For users learning purpose the word will be shown after last try.
 
 Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live website.
 
 ![Hangman website mockup](/documentation/readme_img/p3-mockup.png)
 
 ## How to play
- 1. The computer thinks of a word and show dashes in length eqaul to that of a word.
+ 1. The computer thinks of a word and show dashes in length equal to that of a word.
  2. The player than guesses a character.
- 3. One of the dash is replaced by actual character if it exists in computer word.
+ 3. One of the dash is replaced by actual character if it exists inside the word that computer had thought.
  4. Player cannot select the character that was selected previously.
  5. If the character is invalid, it puts hangman to near death situation by 1. Hangman has only 7 lives.
- 6. If all words are found,S the players is being congratulated.
- 7. If player fails to find all words, hangman dies but the player will be show what the actual word was.
+ 6. If all words are found. the players is being congratulated.
+ 7. If player fails to find all words, hangman dies but the player will be show what the actual word was for learning purpose.
 
 ## User stories
 - I can understand the purpose of this game.
@@ -23,10 +23,10 @@ Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live
 - I can challenge myself to see how good is my vocabulary.
 - I can navigate through application without any issue.
 - I get a mixture of old and new words when I play game again.
-- I can see the number of stages, total wins and loses in last three entries.
-- I can easily perdict remaing tries by viewing the ASCII images of hangman.
+- I can see the number of stages, total wins and losses in last three entries.
+- I can easily predict remaining tries by viewing the ASCII images of hangman.
 - I can see the actual word in the end if I fails to guess the correct word.
-- I can see the characters that I have tried while playing game.
+- I can see the actual word if I failed the stage.
 
 ## Features
 ### Header
@@ -55,31 +55,31 @@ Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live
 - The initial state of ASCII art of Hangman will be shown.
 -  Characters used till now will be empty right now which will be filled later.
 - In front of Your Guess, there are dashes to show number of characters in word.
-- At this point player is asked to enter a character .
+- At this point player is asked to enter a character.
 
 ![Start Game](/documentation/readme_img/after-stage-selection.png)
 
 - Once player starts giving characters the ASCII art of hangman also starts to get filled based on invalid answers.
 - Characters used till now string will start showing used up characters.
-- Dashes infront of your guess string will also start filling with proper characters.
+- Dashes in front of your guess string will also start filling with proper characters.
 
 ![Start Game](/documentation/readme_img/game-play.png)
 
 ### Stage failed
 - On failing seven times the stage is lost and hangman is dead message appears on screen.
 - The word is also printed so that user can play and learn at the same time.
-- Game ends here if player had only one stage selected or he/she is on last stage. The user can select from three options mentioned in "Username and main menu" section once again. The username will remain same for the player's fesability.
+- Game ends here if player had only one stage selected or he/she is on last stage. The user can select from three options mentioned in "Username and main menu" section once again. The username will remain same for the player's feasibility.
 
 ![stage failed](/documentation/readme_img/hangman-is-dead.png)
 
 ### Stage cleared
-- The stage is cleared once player find all characters and congratulations message appeares on the screen.
-- Game ends here if player had only one stage selected or he/she is on last stage. The user can select from three options mentioned in "Username and main menu" section once again. The username will remain same for the player's fesability.
+- The stage is cleared once player find all characters and congratulations message appears on the screen.
+- Game ends here if player had only one stage selected or he/she is on last stage. The user can select from three options mentioned in "Username and main menu" section once again. The username will remain same for the player's feasibility.
 
 ![stage cleared](/documentation/readme_img/stage-won.png)
 
 ### Loading next stage
-- Loading next stage only appeares when user selects more than one stage in the begining.
+- Loading next stage only appears when user selects more than one stage in the beginning.
 
 ![stage cleared](/documentation/readme_img/loading.png)
 
@@ -91,7 +91,7 @@ Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live
     - Total stages
     - Total wins
     - Total loses
-- This game dosen't require leaderboard as it has multiple stages options and user can select how many he/she would love to play.
+- This game doesn’t require leaderboard as it has multiple stages options and user can select how many he/she would love to play.
 
 ![last three players](/documentation/readme_img/last-three-users.png)
 
@@ -100,7 +100,7 @@ Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live
 ![last three players spread sheet data](/documentation/readme_img/spreadsheet-data.png)
 
 ### Warning messages
-Following are the warning messages on invalid data entery:
+Following are the warning messages on invalid data entry:
 1. Message on invalid username.
 
 ![message 1](/documentation/readme_img/invalid-username.png)
@@ -150,12 +150,11 @@ The site was deployed using Heroku and the live link can be found here: [Hangman
 10. Add another build pack "NodeJs" and click save.
 11. Make sure python build pack is on top of NodeJs.
 12. Go to top of page and select deploy option.
-13. Select Github as deploymet method.
+13. Select Github as deployment method.
 14. Confirm to connect with github and auotherize Heroku from Github.
 15. In search bar type repository name and click the connect button.
 16. Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy Branch to deploy manually. Manually deployed branches will need re-deploying each time the repo is updated.
 17. Click View to view the deployed site.
-
 
 
 ### Forking the GitHub Repository
@@ -175,8 +174,8 @@ With Forking one can make a copy of a repository and to view or make changes in 
 
 ## Credits
 ### Extra Help
-- Basic concepts of using google APIs, managing credentails, deployment in Heroku is taken and understood from Code Institute's [Love Sandwiches](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode) project.
-- The concept of validating if character is alphabet is inderstood from [this](https://docs.python.org/2/library/stdtypes.html#str.isalpha) link.
+- Basic concepts of using google APIs, managing credentials, deployment in Heroku is taken and understood from Code Institute's [Love Sandwiches](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode) project.
+- The concept of validating if character is alphabet is understood from [this](https://docs.python.org/2/library/stdtypes.html#str.isalpha) link.
 - The concept of using randrange is understood from [this](https://bobbyhadz.com/blog/python-remove-random-element-from-list) link.
 - The code for replacing a character is taken from [this](https://pythonexamples.org/python-string-replace-character-at-specific-position/) link.
 - The hangman ASCII art is taken from [this github](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c) link.
