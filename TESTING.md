@@ -16,6 +16,36 @@ I used the recommended [CI Python Linter](https://pep8ci.herokuapp.com/#) to val
 | Page | PEP8 URL | Screenshot | Notes |
 | --- | --- | --- | --- |
 | Main Page | [PEP8](https://pep8ci.herokuapp.com/#) | ![screenshot](/documentation/readme_img/ci-python-lynter.png) | Pass: No Errors |
-- <b>NOTE : </b> Hangman ASCII arts were causing "W605 invalid escape sequence '\ '" in PEP8 CI validation on three points. To suppress it #noqa is used on these points which is learned from [this stackoverflow](https://stackoverflow.com/questions/18444840/) link.
+- <b>NOTE : </b> Hangman ASCII arts were causing "W605 invalid escape sequence '\ '" in PEP8 CI validation at three points. To suppress it #noqa is used on these points which is learned from [this stackoverflow](https://stackoverflow.com/questions/18444840/) link.
 
 ## List of bugs and issues
+1. The header coloumn was also fetched along with players data from spread sheet if data is less than four.
+    #### Fix:
+    - I used if statement if data is less than 4, simply pop the header coloumn.
+
+2. In case no data exist in spread sheet, there was no response from application for user which was confusing.
+   #### Fix:
+    - I checked if data length was equal to 0. If so inform user that there is no data available.
+
+3. Hang man ASCII art was causing "W605 invalid escape sequence '\ '" in PEP8 CI validation at three points.
+   #### Fix:
+   - I used #noqa on these points which was learned from [this stackoverflow](https://stackoverflow.com/questions/18444840/) link.
+
+4. The loading of new stage comment was pointless even tough I wanted to give the user more feeling of a game as it was too fast.
+   #### Fix:
+   - I imported time and used sleep method on various points in code for more gaming feel.
+
+5. As per discussion with my mentor, the player was only alerted if a character exits in a word and he/she selects that charcter once agin but no alert was given if character was not dosen't exist in a word and it was selected multiple times. In this case Hangman dies without alerting the player.
+   #### Fix:
+    - New check was added in code where the it check both cases and alerts Player accordingly.
+
+6. After deplyment it was observed that the gap that was appearing between dashes on gitpod disappered on Heroku. No actual space was given in between dashes as it could be seen easily on gitpod console but on heroku there was just as straight line.
+   #### Fix:
+    - Simply used " ".join() on the so the final output became _ _ _ instead of ___.
+
+
+
+## Unfixed bugs
+- No unfixed bugs.
+
+Return back to the [README.md](/README.md) file.

@@ -51,13 +51,15 @@ class Game:
         fetch_data = SHEET.worksheet("Players data")
         rows = []
         counter = 0
-        for index in range(len(fetch_data.get_all_values()), 0, -1):
+        get_data_length = \
+            len(fetch_data.get_all_values())
+        for index in range(get_data_length, 0, -1):
             row = fetch_data.row_values(index)
             rows.append(row)
             counter += 1
             if counter == 3:
                 break
-        if len(fetch_data.get_all_values()) < 4:
+        if get_data_length < 4:
             rows.pop()
         if len(rows) == 0:
             print(" ---- Currently no data available ----")
