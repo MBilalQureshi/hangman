@@ -182,7 +182,7 @@ With Forking one can make a copy of a repository and to view or make changes in 
 - The hangman ASCII art is taken from [this github](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c) link.
 - Learned date and time in different formats is learned from [this](https://www.programiz.com/python-programming/datetime/current-datetime) link.
 - Hangman word ASCII art is taken from [this](https://ascii.co.uk/art/hangman) link.
-- Hangman ASCII arts were causing "W605 invalid escape sequence '\ '" in PEP8 CI validation, to sppress it #noqa is used at three points which is learned from [this stackoverflow](https://stackoverflow.com/questions/18444840/how-to-disable-a-pep8-error-in-a-specific-file) link.
+- Hangman ASCII arts were causing "W605 invalid escape sequence '\ '" in PEP8 CI validation, to suppress it #noqa is used at three points which is learned from [this stackoverflow](https://stackoverflow.com/questions/18444840/how-to-disable-a-pep8-error-in-a-specific-file) link.
 - Words bank for Hangman game is taken from [this](https://github.com/YungNewton/HangMan/blob/master/hangMan.py) link.
 ### Acknowledgements
 - My Mentor Antonio Rodriguez for helpful feedbacks during project development.
