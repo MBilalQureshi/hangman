@@ -311,6 +311,10 @@ class Hangman(Game):
                             if secret_word[index] == char:
                                 position.append(index)
                         for set_char in position:
+                            # To code at line 318 and 319 to replace a _
+                            # with an actual character was taken from this link
+                            # https://pythonexamples.org/python-string
+                            # -replace-character-at-specific-position/
                             update_chars = update_chars[:set_char] \
                                 + char + update_chars[set_char+1:]
                         if update_chars == secret_word:
