@@ -1,4 +1,9 @@
 # Testing
+## Manual Testing
+| Test | Expected | Outcome |
+| --- | --- | --- |
+| s | s | Expected Outcome |
+
 - I confirmed that all input fields need a valid value.
 - I confirmed that application will not crash on giving in invalid values such as space, special characters and digits or characters where they are not required.
 - I confirmed that user is asked to enter valid input where he/she had given invalid input.
@@ -17,7 +22,7 @@
 I used the recommended [CI Python Linter](https://pep8ci.herokuapp.com/#) to validate my python code.
 | Page | PEP8 URL | Screenshot | Notes |
 | --- | --- | --- | --- |
-| Main Page | [PEP8](https://pep8ci.herokuapp.com/#) | ![screenshot](/documentation/readme_img/ci-python-lynter.png) | Pass: No Errors |
+| run.py | [PEP8](https://pep8ci.herokuapp.com/#) | ![screenshot](/documentation/readme_img/ci-python-lynter.png) | Pass: No Errors |
 - <b>NOTE : </b> Hangman ASCII arts were causing "W605 invalid escape sequence '\ '" in PEP8 CI validation at three points. To suppress it #noqa is used on these points which is learned from [this stackoverflow](https://stackoverflow.com/questions/18444840/) link.
 
 ## List of bugs and issues

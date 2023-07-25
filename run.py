@@ -4,6 +4,8 @@ from random import randrange
 from datetime import datetime
 import time
 
+# Credit https://github.com/Code-Institute-Solutions/
+# love-sandwiches-p5-sourcecode project.
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -76,6 +78,7 @@ class Hangman(Game):
     words, asking which word is it, calculate false and correct
     answers and handle multiple stages from 1 - 5 mentioned by user.
     """
+    # credit: https://github.com/YungNewton/HangMan/blob/master/hangMan.py.
     words = ('able about account acid across act addition adjustment'
              'advertisement after again against agreement '
              'air all almost among amount amusement and angle angry animal '
@@ -180,6 +183,9 @@ class Hangman(Game):
              'stork swan tiger toad trout turkey turtle weasel whale wolf '
              'wombat zebra '
              'you young Android ').split()
+
+    # credit : https://gist.github.com/chrishorton
+    # /8510732aa9a80a03c829b09f12e20d9c).
     hangman_pics = ['''
   +---+
       |
@@ -295,7 +301,7 @@ class Hangman(Game):
             print(f"Characters used till now: {all_chars}")
             print("------------------------------------------------------\n")
             print("Your Guess: "+" ".join(update_chars.upper())+'\n')
-            char = input("Please enter letter\n").lower()
+            char = input("Please enter a letter\n").lower()
             if char.replace(" ", "").isalpha() and len(char) == 1:
                 if char.upper() not in all_chars:
                     all_chars += f"{char.upper()} "
@@ -311,8 +317,7 @@ class Hangman(Game):
                             if secret_word[index] == char:
                                 position.append(index)
                         for set_char in position:
-                            # To code at line 318 and 319 to replace a _
-                            # with an actual character was taken from this link
+                            # To code at line 318 and 319 credit:
                             # https://pythonexamples.org/python-string
                             # -replace-character-at-specific-position/
                             update_chars = update_chars[:set_char] \
@@ -399,6 +404,7 @@ def main():
     the user is asked if he/she want to keep playing or not once
     they had played every stage.
     """
+    # credit https://ascii.co.uk/art/hangman.
     print(" _                                             ")
     print("| |                                            ")
     print("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ")
