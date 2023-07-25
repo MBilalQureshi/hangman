@@ -10,7 +10,7 @@
 - I confirmed that user will be asked to enter new alphabet character when he/she inputs duplicate characters.
 - I confirmed that total stages that user can select is between 1 and 5.
 - I confirmed that on pressing Y, game will start.
-- I confirmed that on main menu other than Y or L if any other character, space, digit or special character, the game will exit.
+- I confirmed that on main menu other than Y or L if any other character, space, digit, special characters or even simple enter is given the game will exit.
 
 ## Validator Testing
 ### CI Python Linter
