@@ -362,7 +362,7 @@ def name_validation():
     while True:
         name = input("Please Enter Your Name:\n")
         if name.replace(" ", "").isalpha():
-            return name
+            return name.strip()
         else:
             print("\n======================================================")
             print("Name is invalid. Kindly enter characters between A - Z")
