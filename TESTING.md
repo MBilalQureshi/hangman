@@ -1,9 +1,4 @@
 # Testing
-## Manual Testing
-| Test | Expected | Outcome |
-| --- | --- | --- |
-| s | s | Expected Outcome |
-
 - I confirmed that all input fields need a valid value.
 - I confirmed that application will not crash on giving in invalid values such as space, special characters and digits or characters where they are not required.
 - I confirmed that user is asked to enter valid input where he/she had given invalid input.
@@ -16,6 +11,28 @@
 - I confirmed that total stages that user can select is between 1 and 5.
 - I confirmed that on pressing Y, game will start.
 - I confirmed that on main menu other than Y or L if any other character, space, digit, special characters or even simple enter is given the game will exit.
+
+## Manual Testing
+| Test | Expected | Outcome |
+| --- | --- | --- |
+| Open landing page | Series of print statements making word Hangman on console along with the enter username statement | As Expected |
+| Enter Username with special characters/only spaces/digits | Invalid Input message should appear and user must try again | As Expected |
+| Enter normal username | Main menu must be now visible to user | As Expected |
+| Enter username without input | Invalid input message should appear | As Expected |
+| Press any other button other than Y or L on main menu| Program should exit | As Expected |
+| Press L on main menu | Should show last three game users data | As Expected |
+| Press Y on main menu | stages between number 1 to 5 selection must be shown | As Expected |
+| Input random character/digits/alphabets on stage selection | Should show invalid entry message and user must try again | As Expected |
+| Enter stage selection without input | Should show invalid entry message and user must try again | As Expected |
+| User enter digits between 1 and 5 during stage selection | The Hangman Initial ASCII must be printed showing the game had begun | As Expected |
+| User enters an alphabet | The alphabet entered must be updated in used characters’ list and user can see it. | As Expected |
+| User enters multiple characters/digits/alphabet | The warning message must appear and user can try again. | As Expected |
+| User enters without input | The warning message must appear and user can try again | As Expected |
+| User enters same character | Inform user that user had already used this letter he/she can try again | As Expected |
+| Enter Invalid alphabets that does not match the word | The hang man ASCII art must be updated on each try. On last try user must be informed that hangman is dead | As Expected |
+| Enter valid alphabets that matches the word | Congratulate user on completing the stage. | As Expected |
+| On stage completion | If more than one stage exists loading next stage must appear and start the game once again. If only one stage is selected the main menu must appear. | As Expected |
+| input characters in lower and upper cases | This should not impact the game flow, The game will still accept lower or upper case letter with no issue | As Expected |
 
 ## Validator Testing
 ### CI Python Linter
