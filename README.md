@@ -27,6 +27,7 @@ Click [here](https://hangman-frenzy-4d545907a764.herokuapp.com/) to see the live
 - I can easily predict remaining tries by viewing the ASCII images of hangman.
 - I can see the actual word in the end if I fails to guess the correct word.
 - I can see the actual word if I failed the stage.
+- I can play number of stages of my choice between 1 and 5.
 
 ## Features
 ### Header

@@ -32,7 +32,7 @@
 | Enter Invalid alphabets that does not match the word | The hang man ASCII art must be updated on each try. On last try user must be informed that hangman is dead | As Expected |
 | Enter valid alphabets that matches the word | Congratulate user on completing the stage. | As Expected |
 | On stage completion | If more than one stage exists loading next stage must appear and start the game once again. If only one stage is selected the main menu must appear. | As Expected |
-| input characters in lower and upper cases | This should not impact the game flow, The game will still accept lower or upper case letter with no issue | As Expected |
+| Input characters in lower and upper cases | This should not impact the game flow, The game will still accept lower or upper cases letter with no issue | As Expected |
 
 ## Validator Testing
 ### CI Python Linter
